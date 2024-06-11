@@ -1,5 +1,5 @@
 /* VARIABLES */
-const search = document.querySelector('.search');
+//const search = document.querySelector('.search');
 
 /* FUNCTIONS */
 function initMap () {
