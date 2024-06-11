@@ -29,7 +29,7 @@ function initMap () {
 
 function handleSearch () {
     const postal = document.querySelector('#location');
-    console.log("In handle request...", postal)
+    console.log("Handling search request...", postal)
     initMap()
     postal.value = "";
 }
