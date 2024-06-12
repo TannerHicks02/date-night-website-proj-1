@@ -13,6 +13,25 @@ body {
     background-attachment: fixed; 
     background-position: center; 
 }
+h1 {
+    font-family:'CMUSerifRoman';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 70px;
+    position: relative;
+    top: 200px;
+    color: white;
+}
+
+h2{
+font-family:"Mulish", sans-serif;
+position:relative;
+top: 190px;
+color: white;
+}
+.italic {
+font-style: italic;
+}
 
 /* img {
     position: fixed;
