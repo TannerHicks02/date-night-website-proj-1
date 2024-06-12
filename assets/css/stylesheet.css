@@ -47,6 +47,10 @@ color: white;
 .italic {
 font-style: italic;
 }
+button
+{
+    opacity: 0.7;
+}
 
 /* img {
     position: fixed;
