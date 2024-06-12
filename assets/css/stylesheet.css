@@ -8,22 +8,22 @@ body {
     background-color: black;
     
 }
-
-.background-image {
-  
-   
+.background-image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.background-image { 
     z-index: -1;
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     min-width: 300px;
-    object-fit: cover;
     opacity: 0.6;
     filter: blur(2px);
     -webkit-filter: blur(2px);
-    
 }
 h1 {
     font-family:'CMUSerifRoman';
