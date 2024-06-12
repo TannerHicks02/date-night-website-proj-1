@@ -49,3 +49,30 @@ button
     opacity: 0.7;
 }
 
+#eatIn-button {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    top: 280px;
+    color:white;
+    font-size: 30px;
+    background: none;
+    border: 2px solid white;
+    
+}
+#eatIn-button:hover {
+opacity: 0.5;
+}
+#eatOut-button {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    top: 290px;
+    color: white;
+    font-size: 30px;
+    background: none;
+    border: 2px solid white;
+    }
+    #eatOut-button:hover {
+        opacity: 0.5;
+    }
