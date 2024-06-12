@@ -37,13 +37,16 @@ function findRestaurants (location) {
     const request = {  // Parameters for restaurants
         location: location,
         radius: '16000',
-        type: ['restaurant']
+        type: ['restaurant'],
+        //keyword: 'thai'
     };
 
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length && i < 10; i++) {
+        for (let i = 0; i < results.length && i < 5; i++) {
+            console.log(results[i])
+            createCard(results[i]);
             createMarker(results[i]);
         }
         } else {
@@ -52,18 +55,23 @@ function findRestaurants (location) {
     });
 }
 
+/* Add card for each result */
+function createCard (restaurant) {
+
+}
+
 /* Add markers on map for restaurants */
-function createMarker(place) {
-    if (!place.geometry || !place.geometry.location) return;
+function createMarker(restaurant) {
+    if (!restaurant.geometry || !restaurant.geometry.location) return;
   
     const marker = new google.maps.Marker({
         map,
-        position: place.geometry.location,
+        position: restaurant.geometry.location,
     });
   
     google.maps.event.addListener(marker, 'click', () => {
         const infowindow = new google.maps.InfoWindow();
-        infowindow.setContent(place.name || '');
+        infowindow.setContent(restaurant.name || '');
         infowindow.open(map, marker);
     });
 }
