@@ -5,13 +5,25 @@ body {
     align-items: center;
     text-align: center;
     padding: 20px;
+    background-color: black;
     
+}
+
+.background-image {
+  
+   
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    min-width: 300px;
+    object-fit: cover;
+    opacity: 0.6;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
     
-    background-image: url('/assets/images/background-img.jpg');
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    background-position: center; 
 }
 h1 {
     font-family:'CMUSerifRoman';
@@ -32,9 +44,8 @@ color: white;
 .italic {
 font-style: italic;
 }
+button
+{
+    opacity: 0.7;
+}
 
-/* img {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-} */
