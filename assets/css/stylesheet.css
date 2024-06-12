@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    
+    
+    background-image: url('/assets/images/background-img.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
+}
+h1 {
+    font-family:'CMUSerifRoman';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 70px;
+    position: relative;
+    top: 200px;
+    color: white;
+}
+
+h2{
+font-family:"Mulish", sans-serif;
+position:relative;
+top: 170px;
+color: white;
+}
+.italic {
+font-style: italic;
+}
+
+/* img {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+} */
