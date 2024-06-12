@@ -1,25 +1,30 @@
 /* VARIABLES */
 const search = document.querySelector('.search');
 const postal = document.querySelector('#location');
+const mapDiv = document.querySelector(".map");
+const APIKey = "AIzaSyDJLuOe9XH4mw4Kal20XkEmhwlGDNhRsYE";
+let map;
 
 /* FUNCTIONS */
-function initMap () {
-    // Create the a map for the location
-    const city = { lat: -33.866, lng: 151.196 };
-    const postalCode = postal.value;
-    console.log("In initMap...", postalCode);
-    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postalCode}&key=AIzaSyDJLuOe9XH4mw4Kal20XkEmhwlGDNhRsYE`;
+/* Get map of input zipcode */
+function getInputMap() {
+    const postalCode = postal.value;  // Get user postal code
+    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postalCode}&key=${APIKey}`;
 
+    // Call to Geocoder API
     fetch(geocodeUrl)
         .then(response => response.json())
         .then(data => {
         if (data.status === "OK") {
-            const city = data.results[0].geometry.location;
-            const map = new google.maps.Map(document.querySelector(".map"), {
-            center: city,
-            zoom: 17,
-            mapId: "8d193001f940fde3",
+            const location = data.results[0].geometry.location;  // latitude/longitude coordinates
+
+            map = new google.maps.Map(mapDiv, {  // create map using lat/long coordinates
+                center: location,
+                zoom: 17,
+                mapId: "8d193001f940fde3",
             });
+
+            findRestaurants(location);  // Get restaurants on map
         } else {
             console.error("Geocode was not successful for the following reason: " + data.status);
         }
@@ -27,14 +32,61 @@ function initMap () {
         .catch(error => console.error("Error fetching geocode data: ", error));
 }
 
+/* Find restaurants near location */
+function findRestaurants (location) {
+    const request = {  // Parameters for restaurants
+        location: location,
+        radius: '16000',
+        type: ['restaurant']
+    };
+
+    const service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (let i = 0; i < results.length && i < 10; i++) {
+            createMarker(results[i]);
+        }
+        } else {
+            console.error("Places service was not successful for the following reason: " + status);
+        }
+    });
+}
+
+/* Add markers on map for restaurants */
+function createMarker(place) {
+    if (!place.geometry || !place.geometry.location) return;
+  
+    const marker = new google.maps.Marker({
+        map,
+        position: place.geometry.location,
+    });
+  
+    google.maps.event.addListener(marker, 'click', () => {
+        const infowindow = new google.maps.InfoWindow();
+        infowindow.setContent(place.name || '');
+        infowindow.open(map, marker);
+    });
+}
+
+/* Create map according to search request */
 function handleSearch () {
     const postal = document.querySelector('#location');
     console.log("Handling search request...", postal)
-    initMap()
+    getInputMap()
     postal.value = "";
 }
 
 /* EVENT LISTENERS */
 search.addEventListener('click', handleSearch)
 
+/* INITIALIZERS */
+/* Initiialize default map */
 window.initMap = initMap;
+function initMap () {
+    const temp = { lat: -33.866, lng: 151.196 };  // Defaults to Metcalfe Park, Sydney, Australia 
+    map = new google.maps.Map(mapDiv, {
+        zoom: 18,
+        center: temp,
+        mapId: "DEFAULT_MAP",
+    });
+}
