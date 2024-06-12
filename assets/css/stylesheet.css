@@ -5,7 +5,7 @@ body {
     align-items: center;
     text-align: center;
     padding: 20px;
-    
+    background-color: black;
     
     /* background-image: url('/assets/images/background-img.jpg');
     background-size: cover; 
@@ -14,19 +14,35 @@ body {
     background-position: center; 
     opacity: 0.6; */
 }
+
 .background-image {
-    position: absolute;
+  
+    /* z-index: -1;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
+    min-width: 300px;
+    object-fit: cover;
     
+   
     
-    background-image: url('/assets/images/background-img.jpg');
     background-size: cover; 
     
-    background-position: center; 
-    background-color: rgba(0, 0, 0, 0.5);
+    background-position: center;  */
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    min-width: 300px;
+    object-fit: cover;
+    opacity: 0.6;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    
 }
 h1 {
     font-family:'CMUSerifRoman';
