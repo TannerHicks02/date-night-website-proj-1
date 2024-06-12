@@ -2,6 +2,7 @@
 const search = document.querySelector('.search');
 const postal = document.querySelector('#location');
 const mapDiv = document.querySelector(".map");
+const restaurants = document.querySelector("#restaurant-cards")
 const APIKey = "AIzaSyDJLuOe9XH4mw4Kal20XkEmhwlGDNhRsYE";
 let map;
 
@@ -37,17 +38,15 @@ function findRestaurants (location) {
     const request = {  // Parameters for restaurants
         location: location,
         radius: '16000',
-        type: ['restaurant'],
-        //keyword: 'thai'
+        type: ['restaurant']
     };
 
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length && i < 5; i++) {
-            console.log(results[i])
-            createCard(results[i]);
+        for (let i = 0; i < results.length && i < 10; i++) {
             createMarker(results[i]);
+            createCard(results[i]);
         }
         } else {
             console.error("Places service was not successful for the following reason: " + status);
@@ -55,23 +54,24 @@ function findRestaurants (location) {
     });
 }
 
-/* Add card for each result */
-function createCard (restaurant) {
-
+function createCard(place) {
+    const card = document.createElement("div");
+    card.classList.add('rest-cards');
+    restaurants.appendChild(card)
 }
 
 /* Add markers on map for restaurants */
-function createMarker(restaurant) {
-    if (!restaurant.geometry || !restaurant.geometry.location) return;
+function createMarker(place) {
+    if (!place.geometry || !place.geometry.location) return;
   
     const marker = new google.maps.Marker({
         map,
-        position: restaurant.geometry.location,
+        position: place.geometry.location,
     });
   
     google.maps.event.addListener(marker, 'click', () => {
         const infowindow = new google.maps.InfoWindow();
-        infowindow.setContent(restaurant.name || '');
+        infowindow.setContent(place.name || '');
         infowindow.open(map, marker);
     });
 }
