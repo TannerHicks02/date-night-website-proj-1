@@ -8,7 +8,7 @@ function initMap () {
     const city = { lat: -33.866, lng: 151.196 };
     const postalCode = postal.value;
     console.log("In initMap...", postalCode);
-    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postalCode}&key=AIzaSyAEerJOeBxyhFsP1Scr3BNLld0dITismKE`;
+    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postalCode}&key=${APIKEY}`;
 
     fetch(geocodeUrl)
         .then(response => response.json())
