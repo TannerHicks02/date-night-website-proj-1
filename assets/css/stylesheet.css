@@ -7,30 +7,11 @@ body {
     padding: 20px;
     background-color: black;
     
-    /* background-image: url('/assets/images/background-img.jpg');
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    background-position: center; 
-    opacity: 0.6; */
 }
 
 .background-image {
   
-    /* z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    min-width: 300px;
-    object-fit: cover;
-    
    
-    
-    background-size: cover; 
-    
-    background-position: center;  */
     z-index: -1;
     position: fixed;
     top: 0;
@@ -68,8 +49,3 @@ button
     opacity: 0.7;
 }
 
-/* img {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-} */
