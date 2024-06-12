@@ -55,9 +55,13 @@ function findRestaurants (location) {
 }
 
 function createCard(place) {
+    console.log(place);
     const card = document.createElement("div");
+    const cardTitle = document.createElement('h3');
     card.classList.add('rest-cards');
-    restaurants.appendChild(card)
+    cardTitle.textContent = place.name;
+    restaurants.appendChild(card);
+    card.appendChild(cardTitle);
 }
 
 /* Add markers on map for restaurants */
