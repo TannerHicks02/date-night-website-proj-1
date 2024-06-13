@@ -1,5 +1,5 @@
 // DEPENDENCIES
-const eatInButton = document.querySelector("#eatIn-button");
+const eatInButton = document.querySelector("#nightOut-button");
 const eatOutButton = document.querySelector("#eatOut-button");
 
 console.log("scripts loaded");
@@ -12,5 +12,5 @@ eatOutButton.addEventListener('click', function (event) {
 
 eatInButton.addEventListener('click', function (event) {
     event.preventDefault();
-    window.location.href = "eatin.html";
+    window.location.href = "nighOut.html";
 });
