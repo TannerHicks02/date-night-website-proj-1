@@ -8,6 +8,7 @@ body {
     background-color: black;
     
 }
+
 .background-image img{
     object-fit: cover;
     height: 100%;
@@ -15,7 +16,6 @@ body {
 }
 
 .background-image {
-  
     transform: rotate(180deg);
     z-index: -1;
     position: fixed;
@@ -28,59 +28,75 @@ body {
     filter: blur(2px);
     -webkit-filter: blur(2px);
 }
+
 h1 {
     font-family:'CMUSerifRoman';
     font-weight: lighter;
     font-style: normal;
     font-size: 70px;
     position: relative;
-    top: 200px;
+    top: 10vh;
     color: white;
 }
 
-h2{
-font-family:"Mulish", sans-serif;
-position:relative;
-top: 200px;
-color: white;
-font-size: 24px;
-font-style: lighter;
+h2 {
+    font-family:"Mulish", sans-serif;
+    position:relative;
+    top: 13vh;
+    color: white;
+    font-size: 24px;
+    font-style: lighter;
 }
+
 .italic {
 font-style: italic;
 }
- /* button
-{
+
+#eatOut-button, #nightOut-button {
     position: relative;
-    width: 400px;
+    width: 90vw;
     height: 100px;
-    opacity: 0.7;
-} */
+    color:white;
+    font-size: 20px;
+    background: none;
+    border: 2px solid white;
+}
+
+#eatOut-button:hover, #nightOut-button:hover {
+    opacity: 0.5;
+}
+
+#eatOut-button {
+    top: calc(20vh);
+}
 
 #nightOut-button {
-    position: relative;
-    width: 400px;
-    height: 100px;
-    top: 280px;
-    color:white;
-    font-size: 30px;
-    background: none;
-    border: 2px solid white;
+    top: calc(20vh + 10px);
+}
+
+/* MEDIUM SCREENS */
+@media screen and (min-width: 450px) {
+    #nightOut-button, #eatOut-button {
+        width: 400px;
+        font-size: 30px;
+    }
+
+    #eatOut-button {
+        top: calc(30vh);
+    }
     
-}
-#nightOut-button:hover {
-opacity: 0.5;
-}
-#eatOut-button {
-    position: relative;
-    width: 400px;
-    height: 100px;
-    top: 290px;
-    color: white;
-    font-size: 30px;
-    background: none;
-    border: 2px solid white;
+    #nightOut-button {
+        top: calc(30vh + 10px);
     }
-    #eatOut-button:hover {
-        opacity: 0.5;
+}
+
+/* DESKTOPS */
+@media screen and (min-width: 687px) {
+    h1 {
+        top: 15vh;
     }
+
+    h2 {
+        top: 18vh;
+    }
+}
