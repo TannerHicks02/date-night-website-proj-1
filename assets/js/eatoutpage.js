@@ -54,14 +54,32 @@ function findRestaurants (location) {
     });
 }
 
+/* Create a card for each restaurant */
 function createCard(place) {
     console.log(place);
+    console.log(place.opening_hours);
+    console.log(place.opening_hours.open_now);
+
+    // Create
     const card = document.createElement("div");
     const cardTitle = document.createElement('h3');
+    const open = document.createElement("p");
+    const rating = document.createElement("p");
+    const location = document.createElement("p");
+
+    // Build
     card.classList.add('rest-cards');
     cardTitle.textContent = place.name;
+    open.textContent = isOpen(place.opening_hours.open_now);
+    rating.textContent =  "⭐" + place.rating;
+    location.textContent = place.vicinity;
+
+    // Place
     restaurants.appendChild(card);
     card.appendChild(cardTitle);
+    card.appendChild(open);
+    card.appendChild(rating);
+    card.appendChild(location);
 }
 
 /* Add markers on map for restaurants */
@@ -78,6 +96,14 @@ function createMarker(place) {
         infowindow.setContent(place.name || '');
         infowindow.open(map, marker);
     });
+}
+
+/* Check if restaurant is open */
+function isOpen (open) {
+    if (open) {
+        return "Open now"
+    }
+    return "Closed";
 }
 
 /* Create map according to search request */
