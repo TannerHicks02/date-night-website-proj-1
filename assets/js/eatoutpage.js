@@ -1,6 +1,6 @@
 /* VARIABLES */
 const search = document.querySelector('.search');
-const postal = Number(localStorage.getItem('zipcode')) || 58504;
+const postal = Number(localStorage.getItem('zipCode')) || 10036;
 const mapDiv = document.querySelector(".map");
 const restaurants = document.querySelector("#restaurant-cards")
 const APIKey = "AIzaSyDJLuOe9XH4mw4Kal20XkEmhwlGDNhRsYE";
