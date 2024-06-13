@@ -4,16 +4,22 @@ header {
     justify-content: center;
 }
 
-h2 {
+h1 {
     display: flex;
     position: relative;
     justify-content: center; 
+}
+h2 {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 20px;
 }
 
 .mulish-header {
   font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
-  /* font-weight: <weight>; */
+  /* /* font-weight: <weight>; */ */
   font-style: normal;
 }
 
@@ -44,11 +50,19 @@ h2 {
 }
 
 .rest-cards {
-    
+    background-color: rgba(48, 44, 44, 0.3);
 }
 
-
-.rest-img {
-    height: 25%;
-    width: auto;
+form {
+    border: 2px solid white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: rgba(48, 44, 44, 0.3);
+    margin: 1.5rem;
+    gap: 10px;
 }
