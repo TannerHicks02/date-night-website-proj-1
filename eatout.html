@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Night</title>
-    <link rel="stylesheet" href="assets/css/eatout-styles.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Night</title>
+  <link rel="stylesheet" href="assets/css/eatout-styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 
 <body class="p-3 mb-2 bg-dark text-white">
-    <!-- TITLE -->
-     <header>
-        <div class="row justify-content-center">   
-            <div class="col-12 col-sm-8 col-lg-6">
-                <h1>Let's Plan a Date Night</h1>
-               <h3>Dining Out</h3>
-          </div>   
-        </div>
-     </header>
+
+  <div class="background-image">
+    <img src="./assets/images/eatout_background.jpg" alt="Food on table">
+ </div>
+
+  <header>
+    <div id='example' className="my-class">
+      <h1 class="mulish-header">Let's Plan a Date Night</h1>
+    </div>
+  </header>
 
     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">
@@ -80,15 +81,10 @@
       </div>
     </div>
   </div>
-</div>
 
-     <section id="card header">
-        <h2>Places in Your Area</h2>
 
-     </section>
-
-     <section id="restaurant-cards" class="row">
-         <!-- <div class="card col-4 p-3 mb-2 bg-dark text-white border border-white" style="width: 18rem;">
+  <section id="restaurant-cards" class="row">
+    <!-- <div class="card col-4 p-3 mb-2 bg-dark text-white border border-white" style="width: 18rem;">
              <img src="https://www.pymnts.com/wp-content/uploads/2023/01/Chilis-ghost-kitchens-inflation.jpg?w=620" class="card-img-top" alt="Chili's">
             <div class="card-body">
               <h5 class="card-title">Chili's</h5>
@@ -114,15 +110,20 @@
               <a href="https://www.longhornsteakhouse.com/menu" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-secondary text-white">Menu</a>
             </div>
           </div> -->
-    </section>
+  </section>
 
-    <!-- SEARCH BAR -->
-    <div class="map"></div>
+  <!-- SEARCH BAR -->
+  <button class="search">Search!</button>
 
-    
-    <script src="assets/js/eatoutpage.js"></script>
+  <input type="text" id="location" name="location" required>
+  <div class="map"></div>
 
-    <!-- GOOGLE MAPS AND PLACES API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJLuOe9XH4mw4Kal20XkEmhwlGDNhRsYE&loading=async&libraries=places&callback=initMap" async defer></script>
+  <script src="assets/js/eatoutpage.js"></script>
+
+  <!-- GOOGLE MAPS AND PLACES API -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJLuOe9XH4mw4Kal20XkEmhwlGDNhRsYE&loading=async&libraries=places&callback=initMap"
+    async defer></script>
 </body>
+
 </html>
