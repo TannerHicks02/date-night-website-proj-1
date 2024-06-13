@@ -2,7 +2,12 @@
     font-family: "Mulish", sans-serif;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 h1 {
+    color: white;
     font-family: 'CMUSerifRoman';
     font-weight: lighter;
     font-style: italic;
@@ -11,6 +16,10 @@ h1 {
     position: relative;
     margin-top: 0px;
     margin-left: 12px;
+}
+
+h1:hover {
+    color: #b1b1b1;
 }
 
 h2 {
@@ -42,12 +51,28 @@ h2 {
     -webkit-filter: blur(2px);
 }
 
+.map-and-rests {
+    display: flex;
+    justify-content: center;
+    margin: 0px 30px 0px 30px;
+}
+
+.map-card {
+    color: white;
+    background-color: rgba(48, 44, 44, 0.7);
+    border-radius: 0px;
+    border: 2px solid white;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+}
+
 .map {
     display: flex;
     position: relative;
     align-items: center ;
-    width: 40vw;
-    height: 40vh;
+    width: 300px;
+    height: 300px;
 }
 
 #restaurant-cards {
@@ -63,6 +88,20 @@ h2 {
     border: 2px solid white;
     padding: 20px;
     margin: 10px;
+}
+
+.image-div {
+    width: 100%; /* Set desired width */
+    height: 180px; /* Set desired height */
+    overflow: hidden; /* Hide overflow to maintain aspect ratio */
+}
+
+.rest-cards img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio without stretching */
+    border: 2px solid white;
+    border-radius: 10px;
 }
 
 .search-div {
@@ -91,6 +130,7 @@ h2 {
 
 .filter {
     padding: 4px 10px 4px 10px;
+    min-width: 240px;
 }
 
 .dropdown {
@@ -107,11 +147,16 @@ h2 {
     border-radius: 0px;
     border: 2px solid black;
     width: 130px;
+    margin: 0px 20px 0px 20px !important;
 }
 
 /* MEDIUM SCREENS */
 @media screen and (min-width: 450px) {
     #search-bar {
         width: 80vw;
+    }
+
+    .filter {
+        min-width: 0px;
     }
 }

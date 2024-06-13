@@ -27,7 +27,7 @@ function findAllRestaurants() {
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length && i < 5; i++) {
+            for (let i = 0; i < results.length && i < 6; i++) {
                 if (price === 0 || price === results[i].price_level) {
                     output++;
                     createMarker(results[i]);
@@ -60,6 +60,7 @@ function createCard(place) {
     const open = document.createElement("p");
     const rating = document.createElement("p");
     const location = document.createElement("p");
+    const imgDiv = document.createElement('div');
     const image = document.createElement('img');
 
     // Build
@@ -81,12 +82,14 @@ function createCard(place) {
     rating.textContent = "⭐" + place.rating;
     location.classList.add('card-text');
     location.textContent = place.vicinity;
+    imgDiv.classList.add('image-div')
     image.classList.add('card-img-top');
     image.classList.add('rest-img');
     image.src = place.photos[0].getUrl();
 
     // Place
-    card.appendChild(image);
+    imgDiv.appendChild(image);
+    card.appendChild(imgDiv);
     cardBody.appendChild(cardTitle);
     // cardBody.appendChild(open);
     cardBody.appendChild(rating);
