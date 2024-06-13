@@ -62,24 +62,38 @@ function createCard(place) {
 
     // Create
     const card = document.createElement("div");
-    const cardTitle = document.createElement('h3');
+    const cardBody = document.createElement('div');
+    const cardTitle = document.createElement('h5');
     const open = document.createElement("p");
     const rating = document.createElement("p");
     const location = document.createElement("p");
 
     // Build
-    card.classList.add('rest-cards');
+    // card.classList.add('rest-cards');
+    card.classList.add("card")
+    card.setAttribute('style','width: 18rem');
+
+    cardBody.classList.add('card-body');
+
+    cardTitle.classList.add('card-title');
     cardTitle.textContent = place.name;
+
+    open.classList.add('card-text');
     open.textContent = isOpen(place.opening_hours.open_now);
+
+    rating.classList.add('card-text');
     rating.textContent =  "⭐" + place.rating;
+
+    location.classList.add('card-text');
     location.textContent = place.vicinity;
 
     // Place
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(open);
+    cardBody.appendChild(rating);
+    cardBody.appendChild(location);
+    card.appendChild(cardBody);
     restaurants.appendChild(card);
-    card.appendChild(cardTitle);
-    card.appendChild(open);
-    card.appendChild(rating);
-    card.appendChild(location);
 }
 
 /* Add markers on map for restaurants */
