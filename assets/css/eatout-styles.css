@@ -13,7 +13,7 @@ h2 {
 .mulish-header {
   font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  /* font-weight: <weight>; */
   font-style: normal;
 }
 
@@ -49,4 +49,22 @@ h2 {
     height: 100px;
     width: 100px;
     border: 2px solid white;
+}
+form {
+    border: 2px solid white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #3a3b3c;
+    margin: 1.5rem;
+    gap: 10px;
+} 
+h2 {
+    display: flex;
+    position: relative;
+    top: 100px;
 }
