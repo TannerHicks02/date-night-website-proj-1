@@ -20,31 +20,40 @@
         </div>
      </header>
 
-     <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">
   Filters
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="filerModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Let's get specific!</h1>
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Let's get specific!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="mb-3">
           <form action="">
-            <label for="cars">Choose a car:</label>
-            <select name="cars" id="cars">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
+            <label for="cuisine" class="text-dark">Filter by cuisine:</label>
+            <select name="cuisine" id="cuisine">
+              <option value="italian">Italian</option>
+              <option value="chinese">Chinese</option>
+              <option value="french">French</option>
+              <option value="greek">Greek</option>
+              <option value="japanese">Japanese</option>
+              <option value="mexican">Mexican</option>
             </select>
             <br><br>
-            <input type="submit" value="Submit">
+            <label for="price" class="text-dark">Filter by price:</label>
+            <select name="price" id="price">
+              <option value="cheap">$</option>
+              <option value="moderate">$$</option>
+              <option value="expensive">$$$</option>
+              <option value="v-expensive">$$$$</option>
+            </select>
+            <br><br>
           </form>
         </div>
       </div>
