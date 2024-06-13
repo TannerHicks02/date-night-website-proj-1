@@ -11,27 +11,30 @@ let map;
 
 /* FUNCTIONS */
 /* Find restaurants near location according to user input */
-function getInputMap() {
-    // const cuisine = document.querySelector('#cuisine').value;
+function findAllRestaurants() {
+    restaurants.innerHTML = "";  // Clear old restaurants
+    const cuisine = document.querySelector('#cuisine').value;
+    const price = Number(document.querySelector('#price').value);
 
-    const request = {
+    request = {
         location: latlong,
-        radius: document.querySelector('#radius').value,
+        radius: '8046',
         type: ['restaurant'],
-        //keyword: 'thai'
+        keyword: cuisine,
     }
 
     console.log(request)
-    
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length && i < 10; i++) {
-                createMarker(results[i]);
-                createCard(results[i]);
-            }
+            //for (let i = 0; i < results.length && i < 5; i++) {
+                if (price === "" || price === results[i].price_level) {
+                    createMarker(results[i]);
+                    createCard(results[i]);
+                }
+            //}
         } else {
-            console.error("Places service was not successful for the following reason: " + status);
+            console.error("Places service was not successful: " + status);
         }
     });
 }
@@ -44,7 +47,7 @@ function createCard(place) {
     const card = document.createElement("div");
     const cardBody = document.createElement('div');
     const cardTitle = document.createElement('h5');
-    const open = document.createElement("p");
+    // const open = document.createElement("p");
     const rating = document.createElement("p");
     const location = document.createElement("p");
     const image = document.createElement('img');
@@ -53,34 +56,28 @@ function createCard(place) {
     // card.classList.add('rest-cards');
     card.classList.add("card")
     card.setAttribute('style','width: 18rem');
-
     cardBody.classList.add('card-body');
-
     cardTitle.classList.add('card-title');
     cardTitle.textContent = place.name;
-
-    open.classList.add('card-text');
-    open.textContent = isOpen(place.opening_hours.open_now);
-
+    // open.classList.add('card-text');
+    // open.textContent = isOpen(place.opening_hours.open_now);
     rating.classList.add('card-text');
     rating.textContent =  "⭐" + place.rating;
-
     location.classList.add('card-text');
     location.textContent = place.vicinity;
-
     image.classList.add('card-img-top');
     image.src = place.photos[0].getUrl();
 
-
-
     // Place
-    card.appendChild(image);
+    card.appendChild(cardBody);
     cardBody.appendChild(cardTitle);
-    cardBody.appendChild(open);
+    // cardBody.appendChild(open);
     cardBody.appendChild(rating);
     cardBody.appendChild(location);
-    card.appendChild(cardBody);
+    card.appendChild(image);
     restaurants.appendChild(card);
+
+    console.log(restaurants);
 }
 
 /* Add markers on map for restaurants */
@@ -99,19 +96,11 @@ function createMarker(place) {
     });
 }
 
-/* Check if restaurant is open */
-function isOpen (open) {
-    if (open) {
-        return "Open now"
-    }
-    return "Closed";
-}
-
 /* EVENT LISTENERS */
-search.addEventListener('click', getInputMap)
+search.addEventListener('click', findAllRestaurants)
 
-/* INITIALIZERS */
-/* Initiialize default map and all nearby restaurants*/
+/* INITIALIZE */
+/* Initiialize default map and five nearby restaurants*/
 window.initMap = initMap;
 function initMap () {
     const defaultUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postal}&key=${APIKey}`;
@@ -133,26 +122,4 @@ function initMap () {
         }
     })
     .catch(error => console.error("Error fetching geocode data: ", error));
-}
-
-function findAllRestaurants() {
-
-    const request = {
-        location: latlong,
-        radius: '8046',
-        type: ['restaurant']
-    }
-
-    console.log(request)
-    const service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length && i < 5; i++) {
-                createMarker(results[i]);
-                createCard(results[i]);
-            }
-        } else {
-            console.error("Places service was not successful: " + status);
-        }
-    });
 }
