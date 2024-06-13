@@ -65,7 +65,7 @@ form {
     color: white;
     font-size: 18px;
     border-radius: 20px;
-    background-color: #3a3b3c;
+    background-color: rgba(48, 44, 44, 0.3);
     margin: 1.5rem;
     gap: 10px;
 }
