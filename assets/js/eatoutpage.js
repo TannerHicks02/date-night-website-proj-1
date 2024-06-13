@@ -23,16 +23,17 @@ function findAllRestaurants() {
         keyword: cuisine,
     }
 
-    console.log(request)
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            //for (let i = 0; i < results.length && i < 5; i++) {
-                if (price === "" || price === results[i].price_level) {
+            for (let i = 0; i < results.length && i < 5; i++) {
+                console.log(price);
+                console.log(results[i].price_level);
+                if (price === 0 || price === results[i].price_level) {
                     createMarker(results[i]);
                     createCard(results[i]);
                 }
-            //}
+            }
         } else {
             console.error("Places service was not successful: " + status);
         }
