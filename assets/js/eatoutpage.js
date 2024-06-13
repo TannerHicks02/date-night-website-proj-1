@@ -9,8 +9,9 @@ let map;
 /* FUNCTIONS */
 /* Get map of input zipcode */
 function getInputMap() {
-    const postalCode = postal.value;  // Get user postal code
-    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postalCode}&key=${APIKey}`;
+    const cuisine = document.querySelector('#cuisine');
+    console.log(cuisine)
+    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postal}&key=${APIKey}`;
 
     // Call to Geocoder API
     fetch(geocodeUrl)
@@ -57,8 +58,6 @@ function findRestaurants (location) {
 /* Create a card for each restaurant */
 function createCard(place) {
     console.log(place);
-    console.log(place.opening_hours);
-    console.log(place.opening_hours.open_now);
 
     // Create
     const card = document.createElement("div");
@@ -70,14 +69,14 @@ function createCard(place) {
     // Build
     card.classList.add('rest-cards');
     cardTitle.textContent = place.name;
-    open.textContent = isOpen(place.opening_hours.open_now);
+    // open.textContent = isOpen(place.opening_hours.open_now);
     rating.textContent =  "⭐" + place.rating;
     location.textContent = place.vicinity;
 
     // Place
     restaurants.appendChild(card);
     card.appendChild(cardTitle);
-    card.appendChild(open);
+    // card.appendChild(open);
     card.appendChild(rating);
     card.appendChild(location);
 }
@@ -106,16 +105,8 @@ function isOpen (open) {
     return "Closed";
 }
 
-/* Create map according to search request */
-function handleSearch () {
-    const postal = document.querySelector('#location');
-    console.log("Handling search request...", postal)
-    getInputMap()
-    postal.value = "";
-}
-
 /* EVENT LISTENERS */
-search.addEventListener('click', handleSearch)
+search.addEventListener('click', getInputMap)
 
 /* INITIALIZERS */
 /* Initiialize default map */
