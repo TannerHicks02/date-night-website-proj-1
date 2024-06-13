@@ -11,27 +11,40 @@ let map;
 
 /* FUNCTIONS */
 /* Find restaurants near location according to user input */
-function getInputMap() {
-    // const cuisine = document.querySelector('#cuisine').value;
+function findAllRestaurants() {
+    restaurants.innerHTML = "";  // Clear old restaurants
+    const cuisine = document.querySelector('#cuisine').value;
+    const price = Number(document.querySelector('#price').value);
 
-    const request = {
+    request = {
         location: latlong,
-        radius: document.querySelector('#radius').value,
+        radius: '8046',
         type: ['restaurant'],
-        //keyword: 'thai'
+        keyword: cuisine,
     }
 
-    console.log(request)
-
+    let output = 0;  // Track number of cards on page
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length && i < 10; i++) {
-                createMarker(results[i]);
-                createCard(results[i]);
+            for (let i = 0; i < results.length && i < 5; i++) {
+                if (price === 0 || price === results[i].price_level) {
+                    output++;
+                    createMarker(results[i]);
+                    createCard(results[i]);
+                }
             }
+            
+            // Let user know no results match their search
+            if (output === 0) {
+                handleNoResults();
+            }
+
+        // Let user know no results match their search
+        } else if (status = "ZERO_RESULTS"){
+            handleNoResults();
         } else {
-            console.error("Places service was not successful for the following reason: " + status);
+            console.error("Places service was not successful: " + status);
         }
     });
 }
@@ -50,7 +63,6 @@ function createCard(place) {
     const image = document.createElement('img');
 
     // Build
-    // card.classList.add('rest-cards');
     card.classList.add(
         "card",
         "bg-dark",
@@ -62,26 +74,18 @@ function createCard(place) {
         "justify-content-center"
     );
     card.setAttribute('style', 'width: 18rem');
-
     cardBody.classList.add('card-body');
-
     cardTitle.classList.add('card-title');
     cardTitle.textContent = place.name;
-
     // open.classList.add('card-text');
     // open.textContent = isOpen(place.opening_hours.open_now);
-
     rating.classList.add('card-text');
     rating.textContent = "⭐" + place.rating;
-
     location.classList.add('card-text');
     location.textContent = place.vicinity;
-
     image.classList.add('card-img-top');
     image.classList.add('rest-img');
     image.src = place.photos[0].getUrl();
-
-
 
     // Place
     card.appendChild(image);
@@ -96,12 +100,12 @@ function createCard(place) {
 /* Add markers on map for restaurants */
 function createMarker(place) {
     if (!place.geometry || !place.geometry.location) return;
-
+  
     const marker = new google.maps.Marker({
         map,
         position: place.geometry.location,
     });
-
+  
     google.maps.event.addListener(marker, 'click', () => {
         const infowindow = new google.maps.InfoWindow();
         infowindow.setContent(place.name || '');
@@ -109,60 +113,57 @@ function createMarker(place) {
     });
 }
 
-/* Check if restaurant is open */
-function isOpen(open) {
-    if (open) {
-        return "Open now"
-    }
-    return "Closed";
+/* Let user know no results have been found */
+function handleNoResults(place) {
+    // Create 
+    restaurants.innerHTML = "";  // Clear old restaurants
+    const card = document.createElement("div");
+    const cardBody = document.createElement('div');
+    const cardTitle = document.createElement('h5');
+
+    // Build
+    card.classList.add(
+        "card",
+        "bg-dark",
+        "bg-opacity-50",
+        "rest-cards",
+        "border-light",
+        "text-light",
+        "d-flex",
+        "justify-content-center"
+    );
+    cardTitle.textContent = "Sorry, no restaurants match your search.";
+
+    // Place
+    card.appendChild(cardBody);
+    cardBody.appendChild(cardTitle);
+    restaurants.appendChild(card);
 }
 
 /* EVENT LISTENERS */
-search.addEventListener('click', getInputMap)
+search.addEventListener('click', findAllRestaurants)
 
-/* INITIALIZERS */
-/* Initiialize default map and all nearby restaurants*/
+/* INITIALIZE */
+/* Initiialize default map and five nearby restaurants*/
 window.initMap = initMap;
-function initMap() {
+function initMap () {
     const defaultUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postal}&key=${APIKey}`;
     fetch(defaultUrl)
         .then(response => response.json())
         .then(data => {
-            if (data.status === "OK") {
-                latlong = data.results[0].geometry.location;  // Set latitude/longitude coordinates
+        if (data.status === "OK") {
+            latlong = data.results[0].geometry.location;  // Set latitude/longitude coordinates
 
-                map = new google.maps.Map(mapDiv, {  // Create map using lat/long coordinates
-                    center: latlong,
-                    zoom: 10,
-                    mapId: "8d193001f940fde3",
-                });
-
-                findAllRestaurants();  // Get restaurants on map
-            } else {
-                console.error("Geocode was not successful: " + data.status);
-            }
-        })
-        .catch(error => console.error("Error fetching geocode data: ", error));
-}
-
-function findAllRestaurants() {
-
-    const request = {
-        location: latlong,
-        radius: '8046',
-        type: ['restaurant']
-    }
-
-    console.log(request)
-    const service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length && i < 5; i++) {
-                createMarker(results[i]);
-                createCard(results[i]);
-            }
+            map = new google.maps.Map(mapDiv, {  // Create map using lat/long coordinates
+                center: latlong,
+                zoom: 10,
+                mapId: "8d193001f940fde3",
+            });
+    
+            findAllRestaurants();  // Get restaurants on map
         } else {
-            console.error("Places service was not successful: " + status);
+            console.error("Geocode was not successful: " + data.status);
         }
-    });
+    })
+    .catch(error => console.error("Error fetching geocode data: ", error));
 }
