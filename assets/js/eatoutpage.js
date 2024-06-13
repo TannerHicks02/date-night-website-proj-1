@@ -68,8 +68,6 @@ function createCard(place) {
         "bg-dark",
         "bg-opacity-50",
         "rest-cards",
-        "border-light",
-        "text-light",
         "d-flex",
         "justify-content-center"
     );

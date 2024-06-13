@@ -6,10 +6,9 @@ body {
     text-align: center;
     padding: 20px;
     background-color: black;
-    
 }
 
-.background-image img{
+.background-image img {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -49,7 +48,7 @@ h2 {
 }
 
 .italic {
-font-style: italic;
+    font-style: italic;
 }
 
 #eatOut-button, #nightOut-button {

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Date Night</title>
+
   <!-- BOOTSTRAP -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -22,66 +23,73 @@
     <img src="./assets/images/eatout_background.jpg" alt="Food on table">
  </div>
 
+  <!-- LOGO -->
   <header>
     <div id='example' className="my-class">
-      <h1 class="mulish-header">Let's Plan a Date Night</h1>
+      <h1>Date Night</h2>
     </div>
   </header>
 
+  <main>
+    <h2>What's for dinner?</h2>
 
-      <h2 class="fs-5 text-white" >Let's get specific!</h2>
-      
-        <div class="mb-3">
-          <form action="">
-            <label for="cuisine" class="text-white">Filter by cuisine:</label>
-            <select name="cuisine" id="cuisine">
-              <option value="">Select</option>
-              <option value="italian">Italian</option>
-              <option value="chinese">Chinese</option>
-              <option value="french">French</option>
-              <option value="greek">Greek</option>
-              <option value="japanese">Japanese</option>
-              <option value="mexican">Mexican</option>
-              <option value="american">American</option>
-              <option value="barbeque">Barbeque</option>
-              <option value="burgers">Burgers</option>
-              <option value="indian">Indian</option>
-              <option value="pizza">Pizza</option>
-              <option value="seafood">Seafood</option>
-              <option value="steak">Steak</option>
-              <option value="sushi">Sushi</option>
-              <option value="thai">Thai</option>
-            </select>
-            <br><br>
-            <label for="price" class="text-white">Filter by price:</label>
-            <select name="price" id="price">
-              <option value="">Select</option>
-              <option value="1">$</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-              <option value="4">$$$$</option>
-            </select>
-            <br><br>
-            <label for="radius" class="text-white">Filter by radius:</label>
-            <select name="radius" id="radius">
-              <option value="">Select</option>
-              <option value="1609">Within 1 Mile</option>
-              <option value="8046">Within 5 Miles</option>
-              <option value="16093">Within 10 Miles</option>
-              <option value="32186">Within 20 Miles</option>
-            </select>
-            <br><br>
-          </form>
+    <div class="mb-3 search-div">
+      <form action="" id="search-bar">
+
+        <div class="filter">
+          <label for="cuisine" class="text-white dropdown-label">Cuisine:</label>
+          <select name="cuisine" class="dropdown" id="cuisine">
+            <option value="">Select</option>
+            <option value="italian">Italian</option>
+            <option value="chinese">Chinese</option>
+            <option value="french">French</option>
+            <option value="greek">Greek</option>
+            <option value="japanese">Japanese</option>
+            <option value="mexican">Mexican</option>
+            <option value="american">American</option>
+            <option value="barbeque">Barbeque</option>
+            <option value="burgers">Burgers</option>
+            <option value="indian">Indian</option>
+            <option value="pizza">Pizza</option>
+            <option value="seafood">Seafood</option>
+            <option value="steak">Steak</option>
+            <option value="sushi">Sushi</option>
+            <option value="thai">Thai</option>
+          </select>
         </div>
-        <button type="button" class="btn btn-primary search mb-3">Search</button>
 
-  <!-- RESTAURANTS -->
-  <section id="restaurant-cards" class="row">
-  </section>
+        <div class="filter">
+          <label for="price" class="text-white dropdown-label">Price:</label>
+          <select name="price" class="dropdown" id="price">
+            <option value="">Select</option>
+            <option value="1">$</option>
+            <option value="2">$$</option>
+            <option value="3">$$$</option>
+            <option value="4">$$$$</option>
+          </select>
+        </div>
 
-  <!-- MAP -->
-  <div class="map"></div>
+        <div class="filter">
+          <label for="radius" class="text-white dropdown-label">Distance:</label>
+          <select name="radius" class="dropdown" id="radius">
+            <option value="">Select</option>
+            <option value="1609">1 Mile</option>
+            <option value="8046">5 Miles</option>
+            <option value="16093">10 Miles</option>
+            <option value="32186">20 Miles</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-light search mb-3">Search</button>
+      </form>
+    </div>
 
+    <!-- RESTAURANTS -->
+    <section id="restaurant-cards" class="row"></section>
+
+    <!-- MAP -->
+    <div class="map"></div>
+
+  </main>
   <script src="assets/js/eatoutpage.js"></script>
 
   <!-- GOOGLE MAPS AND PLACES API -->
