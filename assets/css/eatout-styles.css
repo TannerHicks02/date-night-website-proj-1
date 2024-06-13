@@ -27,7 +27,7 @@ h2 {
     display: flex;
     position: relative;
     justify-content: center;
-    top: 20px;
+    top: 16px;
     font-size: 50px;
     text-align: center;
 }
@@ -51,55 +51,53 @@ h2 {
     -webkit-filter: blur(2px);
 }
 
-.map-and-rests {
+main {
     display: flex;
     justify-content: center;
-    margin: 0px 30px 0px 30px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 200px;
 }
 
 .map-card {
-    color: white;
-    background-color: rgba(48, 44, 44, 0.7);
-    border-radius: 0px;
-    border: 2px solid white;
-    padding: 20px;
-    margin: 10px;
-    width: 300px;
+    width: 100%;
 }
 
 .map {
     display: flex;
     position: relative;
-    align-items: center ;
-    width: 300px;
-    height: 300px;
+    align-items: center;
+    width: 100%;
+    height: 250px;
 }
 
 #restaurant-cards {
     display: flex;
     justify-content: center;
-    margin: 0px 30px 0px 30px;
 }
 
-.rest-cards {
+.map-card, .rest-cards {
     color: white;
     background-color: rgba(48, 44, 44, 0.7);
     border-radius: 0px;
     border: 2px solid white;
     padding: 20px;
     margin: 10px;
+    min-width: 200px;
+    flex: 1;
 }
 
 .image-div {
-    width: 100%; /* Set desired width */
-    height: 180px; /* Set desired height */
-    overflow: hidden; /* Hide overflow to maintain aspect ratio */
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
 }
 
 .rest-cards img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Maintain aspect ratio without stretching */
+    object-fit: cover;
     border: 2px solid white;
     border-radius: 10px;
 }
@@ -146,17 +144,45 @@ h2 {
 .search {
     border-radius: 0px;
     border: 2px solid black;
+    height: 36px;
     width: 130px;
-    margin: 0px 20px 0px 20px !important;
+    margin: 4px 20px 0px 20px !important;
+    padding: 0px;
 }
 
 /* MEDIUM SCREENS */
 @media screen and (min-width: 450px) {
+    main {
+        width: 82%;
+        margin: 0px 9% 0px 9%;
+    }
+
     #search-bar {
         width: 80vw;
     }
 
     .filter {
-        min-width: 0px;
+        min-width: 0px; 
+    }
+}
+
+/* SEARCH BAR BREAKPOINT */
+/* TO DO */
+/* @media screen and (min-width: 540px) {
+} */
+
+/* DESKTOPS */
+@media screen and (min-width: 1200px) {
+    main {
+        flex-direction: row;
+    }
+
+    .map-card, .rest-cards {
+        min-width: 220px;
+        flex: 1;
+    }
+
+    .map-card {
+        min-width: 300px;
     }
 }
