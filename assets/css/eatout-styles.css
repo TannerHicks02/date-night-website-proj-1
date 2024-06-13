@@ -5,11 +5,17 @@ header {
 }
 
 h1 {
+    font-family:'CMUSerifRoman';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 70px;
     display: flex;
     position: relative;
     justify-content: center; 
 }
+
 h2 {
+    font-family:"Mulish", sans-serif;
     display: flex;
     position: relative;
     justify-content: center;
@@ -19,7 +25,6 @@ h2 {
 .mulish-header {
   font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
-  /* /* font-weight: <weight>; */ */
   font-style: normal;
 }
 
