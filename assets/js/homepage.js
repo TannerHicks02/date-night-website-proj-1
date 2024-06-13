@@ -1,5 +1,5 @@
 // DEPENDENCIES
-const eatInButton = document.querySelector("#eatIn-button");
+const nightOutButton = document.querySelector("#nightOut-button");
 const eatOutButton = document.querySelector("#eatOut-button");
 const zipInput = document.querySelector('#zip-input');
 const submitButton = document.querySelector('#submit-button');
@@ -12,9 +12,9 @@ eatOutButton.addEventListener('click', function (event) {
     // window.location.href = "eatout.html";
 });
 
-eatInButton.addEventListener('click', function (event) {
+nightOutButton.addEventListener('click', function (event) {
     event.preventDefault();
-    // window.location.href = "eatin.html";
+    // window.location.href = "nightout.html";
 });
 
 submitButton.addEventListener('click', function (event) {
