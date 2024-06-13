@@ -51,7 +51,11 @@ function createCard(place) {
 
     // Build
     // card.classList.add('rest-cards');
-    card.classList.add("card")
+    card.classList.add("card");
+    card.classList.add("bg-dark");
+    card.classList.add("rest-cards")
+    card.classList.add("border-light");
+    card.classList.add("text-light");
     card.setAttribute('style','width: 18rem');
 
     cardBody.classList.add('card-body');
@@ -59,8 +63,8 @@ function createCard(place) {
     cardTitle.classList.add('card-title');
     cardTitle.textContent = place.name;
 
-    open.classList.add('card-text');
-    open.textContent = isOpen(place.opening_hours.open_now);
+    // open.classList.add('card-text');
+    // open.textContent = isOpen(place.opening_hours.open_now);
 
     rating.classList.add('card-text');
     rating.textContent =  "⭐" + place.rating;
@@ -69,6 +73,7 @@ function createCard(place) {
     location.textContent = place.vicinity;
 
     image.classList.add('card-img-top');
+    image.classList.add('rest-img');
     image.src = place.photos[0].getUrl();
 
 
@@ -76,7 +81,7 @@ function createCard(place) {
     // Place
     card.appendChild(image);
     cardBody.appendChild(cardTitle);
-    cardBody.appendChild(open);
+    // cardBody.appendChild(open);
     cardBody.appendChild(rating);
     cardBody.appendChild(location);
     card.appendChild(cardBody);

@@ -13,7 +13,7 @@ h2 {
 .mulish-header {
   font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  /* font-weight: <weight>; */
   font-style: normal;
 }
 
@@ -44,9 +44,11 @@ h2 {
 }
 
 .rest-cards {
-    display: flex;
+    
+}
 
-    height: 100px;
-    width: 100px;
-    border: 2px solid white;
+
+.rest-img {
+    height: 25%;
+    width: auto;
 }
