@@ -44,6 +44,15 @@
               <option value="greek">Greek</option>
               <option value="japanese">Japanese</option>
               <option value="mexican">Mexican</option>
+              <option value="american">American</option>
+              <option value="barbeque">Barbeque</option>
+              <option value="burgers">Burgers</option>
+              <option value="indian">Indian</option>
+              <option value="pizza">Pizza</option>
+              <option value="seafood">Seafood</option>
+              <option value="steak">Steak</option>
+              <option value="sushi">Sushi</option>
+              <option value="thai">Thai</option>
             </select>
             <br><br>
             <label for="price" class="text-dark">Filter by price:</label>
@@ -54,12 +63,20 @@
               <option value="v-expensive">$$$$</option>
             </select>
             <br><br>
+            <label for="radius" class="text-dark">Filter by radius:</label>
+            <select name="radius" id="radius">
+              <option value="1-mile">Within 1 Mile</option>
+              <option value="5-mile">Within 5 Miles</option>
+              <option value="10-mile">Within 10 Miles</option>
+              <option value="20-mile">Within 20 Miles</option>
+            </select>
+            <br><br>
           </form>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Apply Filter</button>
       </div>
     </div>
   </div>
