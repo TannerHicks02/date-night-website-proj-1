@@ -4,10 +4,16 @@ header {
     justify-content: center;
 }
 
-h2 {
+h1 {
     display: flex;
     position: relative;
     justify-content: center; 
+}
+h2 {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 20px;
 }
 
 .mulish-header {
@@ -62,9 +68,4 @@ form {
     background-color: #3a3b3c;
     margin: 1.5rem;
     gap: 10px;
-} 
-h2 {
-    display: flex;
-    position: relative;
-    top: 100px;
 }
