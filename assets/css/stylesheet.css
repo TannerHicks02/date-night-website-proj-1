@@ -74,6 +74,24 @@ font-style: italic;
     top: calc(20vh + 10px);
 }
 
+#zipcode-modal-content, #zipcode-submit-button {
+    border: 2px solid black;
+    border-radius: 0px;
+}
+
+#zipcode-submit-button:hover {
+    border: 2px solid #b1b1b1;
+    border-radius: 0px;
+}
+
+.modal-padding {
+    margin: 0px !important;
+}
+
+#warning {
+    color: red;
+}
+
 /* MEDIUM SCREENS */
 @media screen and (min-width: 450px) {
     #nightOut-button, #eatOut-button {

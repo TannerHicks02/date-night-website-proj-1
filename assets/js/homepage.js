@@ -2,9 +2,8 @@
 const nightOutButton = document.querySelector("#nightOut-button");
 const eatOutButton = document.querySelector("#eatOut-button");
 const zipInput = document.querySelector('#zip-input');
-const submitButton = document.querySelector('#submit-button');
-
-console.log("scripts loaded");
+const submitButton = document.querySelector('#zipcode-submit-button');
+const warning = document.querySelector('#warning');
 
 // EVENT LISTENERS
 eatOutButton.addEventListener('click', function (event) {
@@ -23,12 +22,11 @@ submitButton.addEventListener('click', function (event) {
     let zipCode = zipInput.value;
 
     if (zipCode === '') {
-        displayMessage('error', 'Enter ZIP Code.');
+        //displayMessage('error', 'Please enter a ZIP Code.');
+        warning.textContent = "Please enter a Zipcode"
     }
     else {
         localStorage.setItem('zipCode', zipCode);
+        window.location.href = "eatout.html";
     }
-
-    console.log(localStorage);
-    window.location.href = "eatout.html";
 });

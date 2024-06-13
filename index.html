@@ -17,36 +17,34 @@
      <div class="background-image">
         <img src="./assets/images/background-img.jpg" alt="Food on table">
      </div>
-    <h1>Let's plan a <span class="italic"> Date Night</span></h1>
+    <h1>Let's plan a <span class="italic">Date Night</span></h1>
     <h2>Dating, made easy</h2>
   
     <button type="button" data-bs-toggle="modal" id="eatOut-button" data-bs-target="#zipCodeModal">EAT OUT →</button>
     <button type="button" id="nightOut-button">NIGHT OUT →</button>
 
     <!-- Modal -->
-<div class="modal fade" id="zipCodeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title fs-5 text-dark" id="exampleModalLabel">Search your ZIP code</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="mb-3">
-            <form action="">
-              <label for="zip-input" class="form-label">ZIP Code</label>
-              <input type="text" class="form-control" id="zip-input" required>
-            </form>
+    <div class="modal fade" id="zipCodeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="zipcode-modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title fs-5 text-dark" id="exampleModalLabel">What's your ZIP code?</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="submit-button">I'm Hungry!</button>
+          <div class="modal-body">
+            <div class="mb-3 modal-padding">
+              <form action="">
+                <input type="text" class="form-control" id="zip-input" placeholder="Zipcode" required>
+                <span id="warning"></span>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" id="zipcode-submit-button">I'm Hungry!</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
 
     <script src="./assets/js/homepage.js"></script>
 </body>
