@@ -14,7 +14,7 @@ eatOutButton.addEventListener('click', function (event) {
 
 nightOutButton.addEventListener('click', function (event) {
     event.preventDefault();
-    // window.location.href = "nightout.html";
+    window.location.href = "nightout.html";
 });
 
 submitButton.addEventListener('click', function (event) {
