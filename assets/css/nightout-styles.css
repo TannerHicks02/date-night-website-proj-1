@@ -1,0 +1,10 @@
+h1 {
+    font-family:'CMUSerifRoman';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 40px;
+    position: relative;
+    top: 60px;
+    left: 25%;
+    color: white;
+}
