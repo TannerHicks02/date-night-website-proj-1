@@ -47,6 +47,7 @@ function createCard(place) {
     const open = document.createElement("p");
     const rating = document.createElement("p");
     const location = document.createElement("p");
+    const image = document.createElement('img');
 
     // Build
     // card.classList.add('rest-cards');
@@ -67,7 +68,13 @@ function createCard(place) {
     location.classList.add('card-text');
     location.textContent = place.vicinity;
 
+    image.classList.add('card-img-top');
+    image.src = place.photos[0].getUrl();
+
+
+
     // Place
+    card.appendChild(image);
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(open);
     cardBody.appendChild(rating);
