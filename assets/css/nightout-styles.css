@@ -1,0 +1,29 @@
+h1 {
+    font-family:'CMUSerifRoman';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 40px;
+    position: relative;
+    top: 60px;
+    left: 25%;
+    color: white;
+}
+.background-image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.background-image {
+ 
+    transform: rotate(180deg);
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    min-width: 300px;
+    opacity: 0.6;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
