@@ -21,8 +21,65 @@
     </div>
   </header>
 
-  <div>
-    <h2 class="mulish-header">Restaurants in Your Area</h2>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">
+  Filters
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Let's get specific!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <form action="">
+            <label for="cuisine" class="text-dark">Filter by cuisine:</label>
+            <select name="cuisine" id="cuisine">
+              <option value="italian">Italian</option>
+              <option value="chinese">Chinese</option>
+              <option value="french">French</option>
+              <option value="greek">Greek</option>
+              <option value="japanese">Japanese</option>
+              <option value="mexican">Mexican</option>
+              <option value="american">American</option>
+              <option value="barbeque">Barbeque</option>
+              <option value="burgers">Burgers</option>
+              <option value="indian">Indian</option>
+              <option value="pizza">Pizza</option>
+              <option value="seafood">Seafood</option>
+              <option value="steak">Steak</option>
+              <option value="sushi">Sushi</option>
+              <option value="thai">Thai</option>
+            </select>
+            <br><br>
+            <label for="price" class="text-dark">Filter by price:</label>
+            <select name="price" id="price">
+              <option value="cheap">$</option>
+              <option value="moderate">$$</option>
+              <option value="expensive">$$$</option>
+              <option value="v-expensive">$$$$</option>
+            </select>
+            <br><br>
+            <label for="radius" class="text-dark">Filter by radius:</label>
+            <select name="radius" id="radius">
+              <option value="1-mile">Within 1 Mile</option>
+              <option value="5-mile">Within 5 Miles</option>
+              <option value="10-mile">Within 10 Miles</option>
+              <option value="20-mile">Within 20 Miles</option>
+            </select>
+            <br><br>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary search">Search</button>
+      </div>
+    </div>
   </div>
 
 
