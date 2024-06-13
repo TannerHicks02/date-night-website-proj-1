@@ -1,10 +1,52 @@
+header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+h2 {
+    display: flex;
+    position: relative;
+    justify-content: center; 
+}
+
+.mulish-header {
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.background-image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.background-image { 
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    min-width: 300px;
+    opacity: 0.6;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+
 .map {
+    display: flex;
+    position: relative;
+    align-items: center ;
     width: 40vw;
     height: 40vh;
 }
 
 .rest-cards {
+    display: flex;
+
     height: 100px;
     width: 100px;
-    border: 2px solid red;
+    border: 2px solid white;
 }
