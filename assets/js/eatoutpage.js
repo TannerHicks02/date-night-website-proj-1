@@ -82,7 +82,9 @@ function createCard(place, id) {
     imgDiv.classList.add('image-div')
     image.classList.add('card-img-top');
     image.classList.add('rest-img');
-    image.src = place.photos[0].getUrl();
+    if (place.photos) {
+        image.src = place.photos[0].getUrl();
+    }
 
     // Place
     imgDiv.appendChild(image);

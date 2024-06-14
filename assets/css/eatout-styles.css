@@ -31,7 +31,20 @@ h2 {
     font-size: 50px;
     text-align: center;
 }
-
+h3 {
+    color: white;
+    font-family: 'CMUSerifRoman';
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 30px;
+    display: flex;
+    position: relative;
+    margin-top: -44px;
+    margin-left: 180px; 
+}
+h3:hover {
+    color: #b1b1b1;
+}
 .background-image img {
     object-fit: cover;
     height: 100%;
@@ -150,6 +163,7 @@ main {
     padding: 0px;
 }
 
+
 /* MEDIUM SCREENS */
 @media screen and (min-width: 450px) {
     main {
@@ -168,8 +182,13 @@ main {
 
 /* SEARCH BAR BREAKPOINT */
 /* TO DO */
-/* @media screen and (min-width: 540px) {
-} */
+@media screen and (max-width: 540px) {
+    .dropdown-label {
+        font-size: 22px;
+        
+    }
+    
+}
 
 /* DESKTOPS */
 @media screen and (min-width: 1200px) {
@@ -183,6 +202,16 @@ main {
     }
 
     .map-card {
-        min-width: 300px;
+        min-width: 400px;
+        min-height: 600px;
+        margin-left: 0%;
+    }
+
+    .map {
+        min-height: 600px; 
+    }
+
+    .rest-cards {
+        margin: 1%;
     }
 }
