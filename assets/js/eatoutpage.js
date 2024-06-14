@@ -107,7 +107,11 @@ function createMarker(place) {
   
     google.maps.event.addListener(marker, 'click', () => {
         const infowindow = new google.maps.InfoWindow();
-        infowindow.setContent(place.name || '');
+        const contentString = '<h6 id="restaurant-name" class="text-dark">' + place.name + '</h6>' +
+        '<p class="text-dark">⭐ ' + place.rating + '</p>' + 
+        '<p class="text-dark">' + place.vicinity + '</p>';
+
+        infowindow.setContent(contentString || '');
         console.log(place.name)
         infowindow.open(map, marker);
     });
@@ -152,7 +156,7 @@ restaurants.addEventListener('click', (event) => {
         console.log(card)
         const id = card.getAttribute('data-id');
         const place = getPlaceFromID(id);
-        console.log(id, place)
+        console.log(id, place);
         if (place) {
             map.setCenter(place.geometry.location);
             map.setZoom(15);  // Optionally, zoom in when a card is clicked
