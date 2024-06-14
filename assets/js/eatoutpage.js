@@ -7,8 +7,6 @@ const APIKey = "AIzaSyDJLuOe9XH4mw4Kal20XkEmhwlGDNhRsYE";
 let latlong = { lat: -33.866, lng: 151.196 };
 let map;
 
-// map.setCenter(lat long)
-
 /* FUNCTIONS */
 /* Find restaurants near location according to user input */
 function findAllRestaurants() {
@@ -108,6 +106,7 @@ function createMarker(place) {
     google.maps.event.addListener(marker, 'click', () => {
         const infowindow = new google.maps.InfoWindow();
         infowindow.setContent(place.name || '');
+        console.log(place.name)
         infowindow.open(map, marker);
     });
 }
@@ -154,7 +153,7 @@ restaurants.addEventListener('click', (event) => {
         console.log(id, place)
         if (place) {
             map.setCenter(place.geometry.location);
-            map.setZoom(17);  // Optionally, zoom in when a card is clicked
+            map.setZoom(15);  // Optionally, zoom in when a card is clicked
         }
     }
 })
