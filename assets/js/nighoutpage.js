@@ -2,23 +2,22 @@
 const search = document.querySelector('.search');
 const postal = Number(localStorage.getItem('zipCode')) || 10036;
 const mapDiv = document.querySelector(".map");
-const restaurants = document.querySelector("#restaurant-cards")
+const activities = document.querySelector("#activity-cards")
 const APIKey = "AIzaSyDJLuOe9XH4mw4Kal20XkEmhwlGDNhRsYE";
 let latlong = { lat: -33.866, lng: 151.196 };
 let map;
 
 /* FUNCTIONS */
-/* Find restaurants near location according to user input */
-function findAllRestaurants() {
-    restaurants.innerHTML = "";  // Clear old restaurants
-    const cuisine = document.querySelector('#cuisine').value;
+/* Find activities near location according to user input */
+function findAllActivities() {
+    activities.innerHTML = "";  // Clear old activities
+    const activity = document.querySelector('#activity').value || 'tourist_attraction';
     const price = Number(document.querySelector('#price').value);
 
     request = {
         location: latlong,
         radius: '8046',
-        type: ['restaurant'],
-        keyword: cuisine,
+        type: [activity]
     }
 
     let output = 0;  // Track number of cards on page
@@ -48,7 +47,7 @@ function findAllRestaurants() {
     });
 }
 
-/* Create a card for each restaurant */
+/* Create a card for each activity */
 function createCard(place, id) {
     console.log(place);
 
@@ -82,7 +81,9 @@ function createCard(place, id) {
     imgDiv.classList.add('image-div')
     image.classList.add('card-img-top');
     image.classList.add('rest-img');
-    image.src = place.photos[0].getUrl();
+    if (place.photos) {
+        image.src = place.photos[0].getUrl();
+    }
 
     // Place
     imgDiv.appendChild(image);
@@ -91,10 +92,10 @@ function createCard(place, id) {
     cardBody.appendChild(rating);
     cardBody.appendChild(location);
     card.appendChild(cardBody);
-    restaurants.appendChild(card);
+    activities.appendChild(card);
 }
 
-/* Add markers on map for restaurants */
+/* Add markers on map for activities */
 function createMarker(place) {
     if (!place.geometry || !place.geometry.location) return;
   
@@ -114,7 +115,7 @@ function createMarker(place) {
 /* Let user know no results have been found */
 function handleNoResults(place) {
     // Create 
-    restaurants.innerHTML = "";  // Clear old restaurants
+    activities.innerHTML = "";  // Clear old activities
     const card = document.createElement("div");
     const cardBody = document.createElement('div');
     const cardTitle = document.createElement('h5');
@@ -128,12 +129,12 @@ function handleNoResults(place) {
         "d-flex",
         "justify-content-center"
     );
-    cardTitle.textContent = "Sorry, no restaurants match your search.";
+    cardTitle.textContent = "Sorry, no activities match your search.";
 
     // Place
     card.appendChild(cardBody);
     cardBody.appendChild(cardTitle);
-    restaurants.appendChild(card);
+    activities.appendChild(card);
 }
 
 /* Search local storage for place associated with passed id */
@@ -143,8 +144,8 @@ function getPlaceFromID(id) {
 }
 
 /* EVENT LISTENERS */
-search.addEventListener('click', findAllRestaurants)
-restaurants.addEventListener('click', (event) => {
+search.addEventListener('click', findAllActivities)
+activities.addEventListener('click', (event) => {
     const card = event.target.closest('.card');  // Find the closest card element
     if (card) {
         console.log(card)
@@ -159,7 +160,7 @@ restaurants.addEventListener('click', (event) => {
 })
 
 /* INITIALIZE */
-/* Initiialize default map and five nearby restaurants*/
+/* Initiialize default map and five nearby activities*/
 window.initMap = initMap;
 function initMap () {
     const defaultUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${postal}&key=${APIKey}`;
@@ -175,7 +176,7 @@ function initMap () {
                 mapId: "8d193001f940fde3",
             });
     
-            findAllRestaurants();  // Get restaurants on map
+            findAllActivities();  // Get activities on map
         } else {
             console.error("Geocode was not successful: " + data.status);
         }
