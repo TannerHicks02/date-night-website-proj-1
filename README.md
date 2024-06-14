@@ -13,9 +13,9 @@ To use Date Night: Dating, Made Easy, couples select either "Eat Out" or "Night 
 
 <img src="./assets/images/Screenshot (32).png" alt="Website Home Page">
 
-<img src="./assets/images/Screenshot (33).png" alt="Eat Out Page">
+<img src="./assets/images/Screenshot (34).png" alt="Eat Out Page">
 
-<img src="./assets/images/" alt="Night Out Page">
+<img src="./assets/images/Screenshot (35).png" alt="Night Out Page">
 
 
 ## Credits
