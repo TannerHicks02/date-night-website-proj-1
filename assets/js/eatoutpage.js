@@ -26,7 +26,7 @@ function findAllRestaurants() {
     service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             localStorage.setItem("results", JSON.stringify(results))
-            for (let i = 0; i < results.length && i < 6; i++) {
+            for (let i = 0; i < results.length && output < 6; i++) {
                 if (price === 0 || price === results[i].price_level) {
                     output++;
                     createMarker(results[i]);
