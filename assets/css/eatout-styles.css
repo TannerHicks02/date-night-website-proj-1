@@ -194,6 +194,16 @@ main {
     }
 
     .map-card {
-        min-width: 300px;
+        min-width: 400px;
+        min-height: 600px;
+        margin-left: 0%;
+    }
+
+    .map {
+        min-height: 600px; 
+    }
+
+    .rest-cards {
+        margin: 1%;
     }
 }
