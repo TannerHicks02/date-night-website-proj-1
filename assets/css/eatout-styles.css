@@ -149,6 +149,12 @@ main {
     margin: 4px 20px 0px 20px !important;
     padding: 0px;
 }
+/* SMALL SCREENS */
+/* @media screen and (min-width: 360px ) {
+     .dropdown-label {
+        font-size: 10px;
+    }
+} */
 
 /* MEDIUM SCREENS */
 @media screen and (min-width: 450px) {
@@ -168,8 +174,13 @@ main {
 
 /* SEARCH BAR BREAKPOINT */
 /* TO DO */
-/* @media screen and (min-width: 540px) {
-} */
+@media screen and (max-width: 540px) {
+    .dropdown-label {
+        font-size: 22px;
+        
+    }
+    
+}
 
 /* DESKTOPS */
 @media screen and (min-width: 1200px) {
