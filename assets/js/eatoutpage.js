@@ -154,7 +154,7 @@ restaurants.addEventListener('click', (event) => {
         console.log(card)
         const id = card.getAttribute('data-id');
         const place = getPlaceFromID(id);
-        console.log(id, place)
+        console.log(id, place);
         if (place) {
             map.setCenter(place.geometry.location);
             map.setZoom(15);  // Optionally, zoom in when a card is clicked
