@@ -27,11 +27,12 @@ function findAllRestaurants() {
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
+            localStorage.setItem("results", JSON.stringify(results))
             for (let i = 0; i < results.length && i < 6; i++) {
                 if (price === 0 || price === results[i].price_level) {
                     output++;
                     createMarker(results[i]);
-                    createCard(results[i]);
+                    createCard(results[i], i);
                 }
             }
             
@@ -50,14 +51,13 @@ function findAllRestaurants() {
 }
 
 /* Create a card for each restaurant */
-function createCard(place) {
+function createCard(place, id) {
     console.log(place);
 
     // Create
     const card = document.createElement("div");
     const cardBody = document.createElement('div');
     const cardTitle = document.createElement('h5');
-    const open = document.createElement("p");
     const rating = document.createElement("p");
     const location = document.createElement("p");
     const imgDiv = document.createElement('div');
@@ -73,11 +73,10 @@ function createCard(place) {
         "justify-content-center"
     );
     card.setAttribute('style', 'width: 18rem');
+    card.setAttribute('data-id', id);
     cardBody.classList.add('card-body');
     cardTitle.classList.add('card-title');
     cardTitle.textContent = place.name;
-    // open.classList.add('card-text');
-    // open.textContent = isOpen(place.opening_hours.open_now);
     rating.classList.add('card-text');
     rating.textContent = "⭐" + place.rating;
     location.classList.add('card-text');
@@ -91,7 +90,6 @@ function createCard(place) {
     imgDiv.appendChild(image);
     card.appendChild(imgDiv);
     cardBody.appendChild(cardTitle);
-    // cardBody.appendChild(open);
     cardBody.appendChild(rating);
     cardBody.appendChild(location);
     card.appendChild(cardBody);
@@ -139,8 +137,27 @@ function handleNoResults(place) {
     restaurants.appendChild(card);
 }
 
+/* Search local storage for place associated with passed id */
+function getPlaceFromID(id) {
+    const results = JSON.parse(localStorage.getItem("results"));
+    return results[id];
+}
+
 /* EVENT LISTENERS */
 search.addEventListener('click', findAllRestaurants)
+restaurants.addEventListener('click', (event) => {
+    const card = event.target.closest('.card');  // Find the closest card element
+    if (card) {
+        console.log(card)
+        const id = card.getAttribute('data-id');
+        const place = getPlaceFromID(id);
+        console.log(id, place)
+        if (place) {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Optionally, zoom in when a card is clicked
+        }
+    }
+})
 
 /* INITIALIZE */
 /* Initiialize default map and five nearby restaurants*/
