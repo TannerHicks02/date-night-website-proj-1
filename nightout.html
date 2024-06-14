@@ -27,6 +27,43 @@
 
     <h2> Let's Have a Night Out!</h2>
 
+    <div class="mb-3 search-div">
+        <form action="" id="search-bar">
+  
+          <div class="filter">
+            <label for="cuisine" class="text-white dropdown-label">Cuisine:</label>
+            <select name="cuisine" class="dropdown" id="cuisine">
+              <option value="">Select</option>
+              
+              
+            </select>
+          </div>
+  
+          <div class="filter">
+            <label for="price" class="text-white dropdown-label">Price:</label>
+            <select name="price" class="dropdown" id="price">
+              <option value="">Select</option>
+              <option value="1">$</option>
+              <option value="2">$$</option>
+              <option value="3">$$$</option>
+              <option value="4">$$$$</option>
+            </select>
+          </div>
+  
+          <div class="filter">
+            <label for="radius" class="text-white dropdown-label">Distance:</label>
+            <select name="radius" class="dropdown" id="radius">
+              <option value="">Select</option>
+              <option value="1609">1 Mile</option>
+              <option value="8046">5 Miles</option>
+              <option value="16093">10 Miles</option>
+              <option value="32186">20 Miles</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-light search mb-3">Search</button>
+        </form>
+      </div>
+
     <main>
         <!-- MAP -->
         <div class="card map-card"> 
@@ -36,6 +73,7 @@
         <!-- RESTAURANTS -->
         <section id="restaurant-cards" class="row"></section>
       </main>
+
     
      <!-- JAVASCRIPT -->
   <script src="assets/js/eatoutpage.js"></script>
