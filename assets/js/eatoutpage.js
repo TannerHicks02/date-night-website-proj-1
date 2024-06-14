@@ -105,7 +105,9 @@ function createMarker(place) {
   
     google.maps.event.addListener(marker, 'click', () => {
         const infowindow = new google.maps.InfoWindow();
-        const contentString = '<h6 id="restaurant-name" class="text-dark">' + place.name + '</h6>';
+        const contentString = '<h6 id="restaurant-name" class="text-dark">' + place.name + '</h6>' +
+        '<p class="text-dark">⭐ ' + place.rating + '</p>' + 
+        '<p class="text-dark">' + place.vicinity + '</p>';
 
         infowindow.setContent(contentString || '');
         console.log(place.name)
