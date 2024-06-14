@@ -27,3 +27,17 @@ h1 {
     filter: blur(2px);
     -webkit-filter: blur(2px);
 }
+h3 {
+    color: white;
+    font-family: 'CMUSerifRoman';
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 30px;
+    display: flex;
+    position: relative;
+    margin-top: -44px;
+    margin-left: 180px; 
+}
+h3:hover {
+    color: #b1b1b1;
+}
