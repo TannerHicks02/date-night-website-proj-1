@@ -83,6 +83,16 @@ h2 {
     border-radius: 0px;
 }
 
+#zipcode-modal-content2, #zipcode-submit-button2 {
+    border: 2px solid black;
+    border-radius: 0px;
+}
+
+#zipcode-submit-button2:hover {
+    border: 2px solid #b1b1b1;
+    border-radius: 0px;
+}
+
 .modal-padding {
     margin: 0px !important;
 }
